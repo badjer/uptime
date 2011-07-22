@@ -10,4 +10,4 @@
 
 (defpage "/hello" {:keys [fn ln] :as post}
 				 (common/layout
-				 	 [:p (str "Hello " fn " " ln " ---- " post)]))
+				 	 [:p (str "Hola " fn " " ln " ---- " post)]))
