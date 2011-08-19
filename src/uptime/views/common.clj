@@ -1,7 +1,8 @@
 (ns uptime.views.common
   (use noir.core
        hiccup.core
-       hiccup.page-helpers))
+       hiccup.page-helpers
+       hiccup.form-helpers))
 
 (defpartial layout [& content]
             (html5
@@ -11,3 +12,13 @@
               [:body
                [:div#wrapper
                 content]]))
+
+(defpartial field [name type]
+            [:label {:for name} name]
+            [:input {:type type :name name}])
+
+(defpartial form [url savetext & fields]
+            (form-to [:post url]
+                     (map #(field % :text) fields)
+                     (submit-button savetext)))
+                     

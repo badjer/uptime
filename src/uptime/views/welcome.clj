@@ -2,7 +2,8 @@
   (:require [uptime.views.common :as common])
   (use noir.core
        hiccup.core
-       hiccup.page-helpers))
+       hiccup.page-helpers
+       hiccup.form-helpers))
 
 (defpage "/" []
          (common/layout
@@ -11,3 +12,13 @@
 (defpage "/hello" {:keys [fn ln] :as post}
 				 (common/layout
 				 	 [:p (str "Hola " fn " " ln " ---- " post)]))
+
+(defpage "/user" []
+         (common/layout
+           (common/form "/user" "Create user" "Firstname" "Lastname" "Password")))
+
+(defpage [:post "/user"] [] 
+         (common/layout
+           [:p "You're trying to create a new user"]))
+
+
