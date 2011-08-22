@@ -19,6 +19,6 @@
 
 (defpartial form [url savetext & fields]
             (form-to [:post url]
-                     (map #(field % :text) fields)
+                     (for [[name type] fields] (field name type))
                      (submit-button savetext)))
                      

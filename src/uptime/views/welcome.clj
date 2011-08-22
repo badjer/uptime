@@ -15,10 +15,10 @@
 
 (defpage "/user" []
          (common/layout
-           (common/form "/user" "Create user" "Firstname" "Lastname" "Password")))
+           (common/form "/user" "Create user" ["Firstname" :text "Lastname" :text "Password" :password])))
 
-(defpage [:post "/user"] [] 
+(defpage [:post "/user"] {:as user} 
          (common/layout
-           [:p "You're trying to create a new user"]))
+           [:p "You're trying to create a new user " user]))
 
 
